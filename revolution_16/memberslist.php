@@ -162,7 +162,7 @@ function avatar($user_avatar) {
       $list=urlencode(implode(",",$tempo));
    }
 
-   $result = sql_query("select uname from ".$NPDS_Prefix."users order by uid DESC limit 0,1");
+   $result = sql_query("SELECT uname FROM ".$NPDS_Prefix."users ORDER BY uid DESC LIMIT 0,1");
    list($lastuser) = sql_fetch_row($result);
    
    echo'<h2><img src="images/admin/users.png" border="0" alt="'.translate("Members List").'" />'.translate("Members List");
@@ -183,14 +183,14 @@ function avatar($user_avatar) {
       $ws_req="";
       if (isset($uid_from_ws) and ($uid_from_ws!="")) $ws_req= 'where uid regexp \''.$uid_from_ws.'\' ';
       $count = "SELECT COUNT(uid) AS total FROM ".$NPDS_Prefix."users ";
-      $select = "select uid, name, uname, femail, url, user_regdate, user_from, email, is_visible, user_viewemail, user_avatar, mns, user_lastvisit from ".$NPDS_Prefix."users ";
+      $select = "SELECT uid, name, uname, femail, url, user_regdate, user_from, email, is_visible, user_viewemail, user_avatar, mns, user_lastvisit FROM ".$NPDS_Prefix."users ";
       if (($letter != translate("Other")) AND ($letter != translate("All"))) {
          if ($admin and (preg_match('#^[_\.0-9a-z-]+@[0-9a-z-\.]+\.+[a-z]{2,4}$#i',$letter))) 
-            $where = "where uname like '".$letter."%' or email like '%".strtolower($letter)."%'".str_replace ( 'where',' and',$ws_req );
+            $where = "WHERE uname LIKE '".$letter."%' OR email LIKE '%".strtolower($letter)."%'".str_replace ( 'WHERE',' AND',$ws_req );
          else
-            $where = "where uname like '".$letter."%'".str_replace ( 'where',' and',$ws_req );         
+            $where = "WHERE uname LIKE '".$letter."%'".str_replace ( 'WHERE',' AND',$ws_req );         
       } else if (($letter == translate("Other")) AND ($letter != translate("All"))) {
-         $where = "where uname REGEXP \"^\[1-9]\" ".str_replace ( 'where',' and',$ws_req );
+         $where = "WHERE uname REGEXP \"^\[1-9]\" ".str_replace ( 'WHERE',' AND',$ws_req );
       } else {
          $where = "$ws_req";
       }
@@ -250,7 +250,7 @@ function avatar($user_avatar) {
                <tr>
                   <td>';
                if ($ibid_avatar=avatar($temp_user['user_avatar']))
-                  echo "<img src=\"".$ibid_avatar."\" width=\"20\" height=\"20\" border=\"0\" alt=\"Avatar\" />";
+                  echo "<img src=\"".$ibid_avatar."\" border=\"0\" alt=\"Avatar\" />";
                else
                   echo "&nbsp;";
                echo "</td>\n";
@@ -291,7 +291,7 @@ function avatar($user_avatar) {
                if ($admin) {
                   echo "<td><a href=\"admin.php?chng_uid=".$temp_user['uid']."&amp;op=modifyUser\" title=\"".translate("Edit")." \"><i class=\"fa fa-pencil\"></i></a>";
                   echo "&nbsp;<a href=\"admin.php?op=delUser&amp;chng_uid=".$temp_user['uid']."\" title=\"".translate("Delete")."\"><i class=\"fa fa-trash-o\"></i></a>";
-                  $op_result = sql_query("select open from ".$NPDS_Prefix."users_status where uid='".$temp_user['uid']."'");
+                  $op_result = sql_query("SELECT open FROM ".$NPDS_Prefix."users_status WHERE uid='".$temp_user['uid']."'");
                   list($open_user) = sql_fetch_row($op_result);
                   if ($open_user==1) {
                      echo "&nbsp;<i class=\"fa fa-chain\" title=\"".translate("Connection allowed")."\"></i>";
