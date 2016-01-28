@@ -21,7 +21,7 @@ if (file_exists("IZ-Xinstall.ok")) {
       echo "<html>\n<body>\n"
          ."<div style=\"text-align: center; font-size: 20px; font-family: Arial; font-weight: bold; color: #000000\"><br />NPDS IZ-Xinstall - Installation &amp; Configuration</div>"
          ."<div style=\"text-align: center; font-size: 20px; font-family: Arial; font-weight: bold; color: #FF0000\"><br />\n"
-         ."Vous devez supprimer le répertoire 'install' ET le fichier 'install.php' avant de poursuivre !<br /><br />\n"
+         ."Vous devez supprimer le r&eacute;pertoire 'install' ET le fichier 'install.php' avant de poursuivre !<br /><br />\n"
          ."You must remove the directory 'install' as well as the file 'install.php before continuing!\n"
          ."</div>\n</body>\n</html>\n";
       die();
@@ -80,10 +80,10 @@ function automatednews() {
                 if ($subscribe) {
                    subscribe_mail("topic",$topic,"",$subject,"");
                 }
-                // Réseaux sociaux
+                // RÃ©seaux sociaux
                 if (file_exists('modules/npds_twi/npds_to_twi.php')) {include ('modules/npds_twi/npds_to_twi.php');}
                 if (file_exists('modules/npds_fbk/npds_to_fbk.php')) {include ('modules/npds_twi/npds_to_fbk.php');}
-                // Réseaux sociaux
+                // RÃ©seaux sociaux
              }
           }
        }
