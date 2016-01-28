@@ -25,7 +25,7 @@ if ($mod_admin_news>0) {
    if ($mod_admin_news==1) {
       if ($user!="" and $admin=="") {
          global $cookie;
-         $result = sql_query("select level from ".$NPDS_Prefix."users_status where uid='$cookie[0]'");
+         $result = sql_query("SELECT level FROM ".$NPDS_Prefix."users_status WHERE uid='$cookie[0]'");
          if (sql_num_rows($result)==1) {
             list($userlevel) = sql_fetch_row($result);
             if ($userlevel==1) {
