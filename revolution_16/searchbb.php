@@ -29,7 +29,7 @@ $Smax="99";
 function ancre($forum_id,$topic_id,$post_id,$posts_per_page) {
    global $NPDS_Prefix;
 
-   $rowQ1=Q_Select ("SELECT post_id FROM ".$NPDS_Prefix."posts WHERE forum_id='$forum_id' and topic_id='$topic_id' order by post_id ASC", 600);
+   $rowQ1=Q_Select ("SELECT post_id FROM ".$NPDS_Prefix."posts WHERE forum_id='$forum_id' AND topic_id='$topic_id' ORDER BY post_id ASC", 600);
    if (!$rowQ1)
       forumerror('0015');
    $i=0;
