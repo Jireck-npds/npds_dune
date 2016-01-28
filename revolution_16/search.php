@@ -334,9 +334,9 @@ if (!function_exists("Mysql_Connexion")) {
       if ($nrows>0) {
          while (list($artid, $secid, $title, $content) = sql_fetch_row($result)) {
             $rowcolor = tablos();
-            $rowQ2=Q_Select ("select secname, rubid from ".$NPDS_Prefix."sections where secid='$secid'", 3600);
+            $rowQ2=Q_Select ("SELECT secname, rubid FROM ".$NPDS_Prefix."sections WHERE secid='$secid'", 3600);
             list(,$row2) = each($rowQ2);
-            $rowQ3=Q_Select ("select rubname from ".$NPDS_Prefix."rubriques where rubid='".$row2['rubid']."'", 3600);
+            $rowQ3=Q_Select ("SELECT rubname FROM ".$NPDS_Prefix."rubriques WHERE rubid='".$row2['rubid']."'", 3600);
             list(,$row3) = each($rowQ3);
             if ($row3['rubname']!="Divers" AND $row3['rubname']!="Presse-papiers") {
                $surl = "sections.php?op=listarticles&amp;secid=$secid";
@@ -371,7 +371,7 @@ if (!function_exists("Mysql_Connexion")) {
    // users
    } elseif ($type=="users") {
       if (($member_list and $user) or $admin) {
-         $result = sql_query("select uname, name from ".$NPDS_Prefix."users where (uname like '%$query_title%' OR name like '%$query_title%' OR bio like '%$query_title%') order by uname ASC limit $min,$offset");
+         $result = sql_query("SELECT uname, name FROM ".$NPDS_Prefix."users WHERE (uname LIKE '%$query_title%' OR name LIKE '%$query_title%' OR bio LIKE '%$query_title%') ORDER BY uname ASC LIMIT $min,$offset");
          if ($result) {
             $nrows  = sql_num_rows($result);
          }
