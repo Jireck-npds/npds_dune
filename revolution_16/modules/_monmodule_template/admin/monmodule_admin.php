@@ -35,7 +35,7 @@ else {
    include_once('modules/'.$ModPath.'/lang/monmodule-french.php');
 }
 
-$f_titre= monmodule_translate("Configuration du module geoloc");
+$f_titre= monmodule_translate("Configuration du module");
 
 // ==> le code de monmodule
 ...
