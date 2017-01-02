@@ -25,7 +25,7 @@ if (strstr($ModPath,"..") || strstr($ModStart,"..") || stristr($ModPath, "script
    die();
 }
 // variables ...
-global $pdst, $language;
+global $NPDS_Prefix, $language;
 
 // inclusion pages.php si besoin
 if (file_exists('modules/'.$ModPath.'/admin/pages.php')) {
@@ -36,14 +36,27 @@ if (file_exists('modules/'.$ModPath.'/admin/pages.php')) {
 include ('modules/'.$ModPath.'/monmodule_conf.php');
 
 // inclusion fichier langue suivant language demandé par $language
-if (file_exists('modules/'.$ModPath.'/lang/monmodule-'.$language.'.php')) {
-   include_once('modules/'.$ModPath.'/lang/monmodule-'.$language.'.php');
+if (file_exists('modules/'.$ModPath.'/lang/'.$language.'.php')) {
+   include_once('modules/'.$ModPath.'/lang/'.$language.'.php');
 }
 else {
-   include_once('modules/'.$ModPath.'/lang/monmodule-french.php');
-} 
+   include_once('modules/'.$ModPath.'/lang/french.php');
+}
+include_once('cache.class.php');
+include ("modules/$ModPath/cache.timings.php");
 
+include ("header.php");
+if (($cache_obj->genereting_output==1) or ($cache_obj->genereting_output==-1) or (!$SuperCache)) {
+// FIN DE CARTOUCHE   
 // ==> le code de monmodule
-...
+
 // <== le code de monmodule
+ 
+}
+
+
+if ($SuperCache) {
+   $cache_obj->endCachingPage();   
+}
+include("footer.php"); 
 ?>
