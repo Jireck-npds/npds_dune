@@ -282,7 +282,11 @@ function head($tiny_mce_init, $css_pages_ref, $css, $tmp_theme, $js, $m_descript
    global $tiny_mce,$tiny_mce_theme,$tiny_mce_relurl;
    if ($tiny_mce) {
       if (array_key_exists($pages_ref,$PAGES)) {
-         if (array_key_exists('TinyMce',$PAGES[$pages_ref])) {
+    // Mod by Jireck
+         // Retourne toujours vrai puisque renseigner dans pages avec 0 ou 1
+         //if (array_key_exists('TinyMce',$PAGES[$pages_ref])) {
+         if ($PAGES[$pages_ref][TinyMce] =='1'){
+            // RESTE A RENSEIGNER le pages.php avec toutes les lignes où il y a besoin de tinymce
             $tiny_mce_init=true;
             if (array_key_exists('TinyMce-theme',$PAGES[$pages_ref]))
                $tiny_mce_theme=$PAGES[$pages_ref]['TinyMce-theme'];
