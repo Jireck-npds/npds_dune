@@ -7,12 +7,10 @@
   Contact:jpb [at] npds.org
   From:Lyon, Rhone, France
 
-  Html:Jireck
-
   Themes:B-Mag 
 
 /* SITE */
   Language:french (multilangue)
   Doctype:(x)Html5 with CSS3
-  Tools:PHP/Mysql(i)/js
+  Tools:PHP/Mysql(i)/js/bootstrap
   IDE:Notepad++/BBEdit
