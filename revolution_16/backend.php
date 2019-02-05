@@ -96,7 +96,7 @@ switch ($op) {
         fab_feed('RSS0.91','cache/RSS0.91-feed.xml',3600);
         break;
     default:
-        fab_feed('RSS1.0','cache/RSS1.0-feed.xml',3600);
+        fab_feed('RSS2.0','cache/RSS2.0-feed.xml',3600);
         break;
 }
 ?>
