@@ -288,7 +288,7 @@ $PAGES['modules.php?ModPath=f-manager&ModStart=pic-manager*']['run']="yes";
 $PAGES['modules.php?ModPath=f-manager&ModStart=pic-manager*']['blocs']="0";
 
 // CSS sur fichiers particuliers car n'utilisant pas header.php
-global $nuke_url;
+
 $PAGES['chatrafraich.php']['css']=array($nuke_url."/lib/bootstrap/dist/css/bootstrap.min.css+","chat.css+");
 $PAGES['chatinput.php']['css']=array($nuke_url."/lib/bootstrap/dist/css/bootstrap.min.css+","chat.css+");
 
@@ -300,7 +300,7 @@ $PAGES['modules.php?ModPath=reseaux-sociaux&ModStart=reseaux-sociaux*']['blocs']
 // $PAGES['forum=1']['title']="forum.php";
 // $PAGES['forum=1']['run']="user";
 
-global $language;
+
 $PAGES['modules.php?ModPath='.$ModPath.'&ModStart=geoloc*']['js']=array($nuke_url.'/lib/ol/ol.js');
 $PAGES['modules.php?ModPath='.$ModPath.'&ModStart=geoloc*']['title']="[french]Localisation[/french][english]Geolocation[/english][spanish]Geolocalizaci&oacute;n[/spanish][german]Geolocation[/german][chinese]&#22320;&#29702;&#20301;&#32622;[/chinese]+|$title+";
 $PAGES['modules.php?ModPath='.$ModPath.'&ModStart=geoloc*']['run']="yes";
