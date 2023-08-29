@@ -24,7 +24,7 @@ $sql_nbREQ=0;
    }
 // Connexion
    function sql_connect() {
-      global $mysql_p, $dbhost, $dbuname, $dbpass, $dbname, $dblink;
+      global $mysql_p, $dbhost, $dbuname, $dbpass, $dbname;
 
       if (($mysql_p) or (!isset($mysql_p)))
          $dblink=@mysqli_connect('p:'.$dbhost, $dbuname, $dbpass);
